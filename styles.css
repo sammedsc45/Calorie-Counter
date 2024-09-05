@@ -1,87 +1,167 @@
 :root {
-    --light-grey: #f5f6f7;
-    --dark-blue: #0a0a23;
-    --fcc-blue: #1b1b32;
-    --light-yellow: #fecc4c;
-    --dark-yellow: #feac32;
-    --light-pink: #ffadad;
-    --dark-red: #850000;
-    --light-green: #acd157;
-  }
-  
+  --primary-color: #3498db;  /* Soft blue */
+  --primary-dark: #2980b9;   /* Darker blue for hover states */
+  --secondary-color: #2ecc71;  /* Fresh green */
+  --accent-color: #e74c3c;   /* Soft red for alerts or highlights */
+  --bg-color: #ecf0f1;       /* Light gray for background */
+  --card-bg: #ffffff;        /* White for card backgrounds */
+  --text-primary: #2c3e50;   /* Dark blue-gray for primary text */
+  --text-secondary: #7f8c8d; /* Medium gray for secondary text */
+  --border-color: #bdc3c7;   /* Light gray for borders */
+  --input-focus-shadow: 0 0 0 2px rgba(52, 152, 219, 0.5);
+  --transition-speed: 0.3s;
+}
+
+body {
+  font-family: 'Lato', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  margin: 20px 0;
+  color: var(--primary-color);
+  font-size: 2em;
+}
+
+.container {
+  width: 90%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+label,
+legend {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+  display: block;
+  font-size: 0.9em;
+}
+
+input,
+select {
+  min-height: 32px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+  font-size: 0.9em;
+  transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+input:focus,
+select:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: var(--input-focus-shadow);
+}
+
+fieldset {
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 12px;
+  background-color: var(--card-bg);
+  margin-bottom: 16px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+}
+
+button {
+  cursor: pointer;
+  text-decoration: none;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 0.9em;
+  font-weight: 600;
+  color: white;
+  margin: 4px;
+  transition: background-color var(--transition-speed);
+}
+
+button:hover {
+  background-color: var(--primary-dark);
+}
+
+button:active {
+  background-color: var(--primary-dark);
+  transform: translateY(1px);
+}
+
+.controls {
+  margin-bottom: 20px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.output {
+  border: 1px solid var(--border-color);
+  padding: 12px;
+  text-align: center;
+  border-radius: 6px;
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+  margin-top: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hide {
+  display: none;
+}
+
+.output span {
+  font-weight: 700;
+  font-size: 1.1em;
+}
+
+.surplus {
+  color: var(--secondary-color);
+}
+
+.deficit {
+  color: var(--accent-color);
+}
+
+@media (max-width: 480px) {
   body {
-    font-family: "Lato", Helvetica, Arial, sans-serif;
-    font-size: 18px;
-    background-color: var(--fcc-blue);
-    color: var(--light-grey);
+      font-size: 14px;
   }
-  
-  h1 {
-    text-align: center;
-  }
-  
+
   .container {
-    width: 90%;
-    max-width: 680px;
+      width: 95%;
+      padding: 15px;
   }
-  
-  h1,
-  .container,
-  .output {
-    margin: 20px auto;
+
+  h1 {
+      font-size: 1.8em;
   }
-  
-  label,
-  legend {
-    font-weight: bold;
+
+  .form-actions {
+      flex-direction: column;
   }
-  
-  .input-container {
-    display: flex;
-    flex-direction: column;
-  }
-  
+
   button {
-    cursor: pointer;
-    text-decoration: none;
-    background-color: var(--light-yellow);
-    border: 2px solid var(--dark-yellow);
+      width: 100%;
+      margin: 4px 0;
   }
-  
-  button,
-  input,
-  select {
-    min-height: 24px;
-    color: var(--dark-blue);
-  }
-  
-  fieldset,
-  label,
-  button,
-  input,
-  select {
-    margin-bottom: 10px;
-  }
-  
-  .output {
-    border: 2px solid var(--light-grey);
-    padding: 10px;
-    text-align: center;
-  }
-  
-  .hide {
-    display: none;
-  }
-  
-  .output span {
-    font-weight: bold;
-    font-size: 1.2em;
-  }
-  
-  .surplus {
-    color: var(--light-pink);
-  }
-  
-  .deficit {
-    color: var(--light-green);
-  }
+}
